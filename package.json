@@ -1,0 +1,23 @@
+{
+  "name": "pcos",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@contentful/rich-text-html-renderer": "^16.1.1",
+    "@next/font": "^13.4.16",
+    "contentful": "^10.4.2",
+    "eslint": "8.46.0",
+    "eslint-config-next": "13.4.13",
+    "next": "13.4.13",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-icons": "^4.10.1",
+    "styled-components": "^6.0.7"
+  }
+}
