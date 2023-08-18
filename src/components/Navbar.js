@@ -1,6 +1,7 @@
 'use client'
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import styled from 'styled-components';
 import Link from 'next/link';
@@ -66,8 +67,6 @@ const MobileMenu = styled.div`
   transform: ${(props) => (props.open ? 'translateX(0)' : 'translateX(-100%)')};
 `;
 
-
-
 const CloseButton = styled(MenuButton)`
   position: absolute;
   top: 2.5rem;
@@ -82,6 +81,10 @@ const MobileLink = styled.a`
 
 export const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+  };
 
   return (
     <>
@@ -103,10 +106,10 @@ export const Navbar = () => {
         <CloseButton onClick={() => setMobileMenuOpen(false)}>
           <FaTimes />
         </CloseButton>
-        <Link href="/" passHref><MobileLink>Home</MobileLink></Link>
-        <Link href="/about" passHref><MobileLink>About</MobileLink></Link>
-        <Link href="/stories" passHref><MobileLink>Stories</MobileLink></Link>
-        <Link href="/events" passHref><MobileLink>Events</MobileLink></Link>
+        <Link href="/" passHref><MobileLink onClick={closeMobileMenu}>Home</MobileLink></Link>
+        <Link href="/about" passHref><MobileLink onClick={closeMobileMenu}>About</MobileLink></Link>
+        <Link href="/stories" passHref><MobileLink onClick={closeMobileMenu}>Stories</MobileLink></Link>
+        <Link href="/events" passHref><MobileLink onClick={closeMobileMenu}>Events</MobileLink></Link>
       </MobileMenu>
     </>
   );
