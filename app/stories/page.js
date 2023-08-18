@@ -75,12 +75,12 @@ export default function Stories(props) {
 
   return (
     <div>
-      <Script id="gtag-main" src="https://www.googletagmanager.com/gtag/js?id=G-SMP6604EWF" async></Script>
+      <Script id="gtag-main" src="https://www.googletagmanager.com/gtag/js?id=G-R50Q5G0C9Z" async></Script>
       <Script id="gtag-config" dangerouslySetInnerHTML={{ __html: `
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'G-SMP6604EWF');
+          gtag('config', 'G-R50Q5G0C9Z');
         ` }} />
       <GlobalStyle />
       <Navbar />
