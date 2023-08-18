@@ -3,7 +3,7 @@
 import Footer from "@/src/components/Footer";
 import Navbar from "@/src/components/Navbar";
 import styled from 'styled-components';
-
+import Script from "next/script";
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
@@ -17,8 +17,8 @@ const GlobalStyle = createGlobalStyle`
 
 const HomePageContainer = styled.div`
   background: url('/pcosDesktopBG2.jpeg') no-repeat center center, 
-              url('/pcosBGColor.png') no-repeat center center; // Large screens
-  background-size: contain, cover; // contain for the first image, cover for the second
+              url('/pcosBGColor.png') no-repeat center center;
+  background-size: contain, cover;
   height: 100vh;
   width: 100%;
   display: flex;
@@ -27,30 +27,28 @@ const HomePageContainer = styled.div`
 
   @media (max-width: 768px) {
     background: url('/pcosMobileBG.jpeg') no-repeat center center,
-                url('/pcosBGColor.png') no-repeat center center; // Small screens
-    background-size: contain, cover; // contain for the first image, cover for the second
+                url('/pcosBGColor.png') no-repeat center center;
+    background-size: contain, cover;
   }
 `;
 
-
-
-
 const Title = styled.div`
-  width: 2100px; /* You can adjust the width as needed */
-  height: 700px; /* You can adjust the height as needed */
+  width: 2100px;
+  height: 700px;
   background: url('/pcosTitleBG.png') no-repeat center center;
-  background-size: contain; // Adjust as needed
-`;
-
-
-const TealText = styled.span`
-  color: teal;
-  display: block; /* This will make the text display on a new line */
+  background-size: contain;
 `;
 
 export default function Home() {
   return (
     <>
+      <Script id="gtag-main" src="https://www.googletagmanager.com/gtag/js?id=G-RT5P8VQWJK" async></Script>
+      <Script id="gtag-config" dangerouslySetInnerHTML={{ __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-RT5P8VQWJK');
+        ` }} />
       <GlobalStyle />
       <Navbar />
       <HomePageContainer>

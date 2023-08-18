@@ -4,7 +4,7 @@ import Navbar from "@/src/components/Navbar";
 import React from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
-import Head from "next/head";
+import Script from "next/script";
 
 import { createGlobalStyle } from 'styled-components';
 import Footer from "@/src/components/Footer";
@@ -78,19 +78,23 @@ const StyledButton = styled.a`
 export default function page() {
   return (
     <>
+      <Script id="gtag-main" src="https://www.googletagmanager.com/gtag/js?id=G-RT5P8VQWJK" async></Script>
+      <Script id="gtag-config" dangerouslySetInnerHTML={{ __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-RT5P8VQWJK');
+        ` }} />
       <GlobalStyle />
       <Navbar />
       <PageContainer>
-
-{/* Move the Footer outside the PageContainer */}
       </PageContainer>
       <ButtonContainer>
-  <a href="https://fb.me/e/3LIfTJreZ?mibextid=RQdjqZ" target="_blank">
-    <StyledButton>More Info</StyledButton>
-  </a>
-</ButtonContainer>
+        <Link href="https://fb.me/e/3LIfTJreZ?mibextid=RQdjqZ" target="_blank">
+          <StyledButton>More Info</StyledButton>
+        </Link>
+      </ButtonContainer>
       <Footer /> 
-
     </>
   )
 }

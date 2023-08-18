@@ -6,7 +6,7 @@ import React, { useEffect, useState } from 'react';
 import Image from "next/image";
 import styled from 'styled-components';
 import Navbar from "@/src/components/Navbar";
-
+import Script from "next/script";
 import { createGlobalStyle } from 'styled-components';
 import Footer from "@/src/components/Footer";
 
@@ -75,6 +75,13 @@ export default function Stories(props) {
 
   return (
     <div>
+      <Script id="gtag-main" src="https://www.googletagmanager.com/gtag/js?id=G-RT5P8VQWJK" async></Script>
+      <Script id="gtag-config" dangerouslySetInnerHTML={{ __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-RT5P8VQWJK');
+        ` }} />
       <GlobalStyle />
       <Navbar />
       <StoriesPageContainer>
@@ -85,12 +92,12 @@ export default function Stories(props) {
                 <StoryTitle>{story.fields.name}</StoryTitle>
               </TitleContainer>
               <Image
-  src={`https:${story.fields.photo.fields.file.url}`}
-  alt={story.fields.name}
-  width={300} // Set to desired width
-  height={200} // Set to desired height
-  layout="intrinsic" // Optional, but it can help maintain the aspect ratio
-/>
+                src={`https:${story.fields.photo.fields.file.url}`}
+                alt={story.fields.name}
+                width={300}
+                height={200}
+                layout="intrinsic"
+              />
               <StoryContent
                 dangerouslySetInnerHTML={{
                   __html: documentToHtmlString(story.fields.story),

@@ -73,11 +73,18 @@ const CloseButton = styled(MenuButton)`
   right: 3rem;
 `;
 
-const MobileLink = styled.a`
+const MobileLink = styled(Link)`
   color: white;
-  text-decoration: none;
   font-size: 1.5rem;
+  text-decoration: none; // Remove the underline
+
+  a {
+    text-decoration: none; // Remove the underline for the actual anchor tag inside the Link
+  }
 `;
+
+
+
 
 export const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -103,14 +110,14 @@ export const Navbar = () => {
         </MenuButton>
       </NavBarContainer>
       <MobileMenu open={mobileMenuOpen}>
-        <CloseButton onClick={() => setMobileMenuOpen(false)}>
-          <FaTimes />
-        </CloseButton>
-        <Link href="/" passHref><MobileLink onClick={closeMobileMenu}>Home</MobileLink></Link>
-        <Link href="/about" passHref><MobileLink onClick={closeMobileMenu}>About</MobileLink></Link>
-        <Link href="/stories" passHref><MobileLink onClick={closeMobileMenu}>Stories</MobileLink></Link>
-        <Link href="/events" passHref><MobileLink onClick={closeMobileMenu}>Events</MobileLink></Link>
-      </MobileMenu>
+  <CloseButton onClick={() => setMobileMenuOpen(false)}>
+    <FaTimes />
+  </CloseButton>
+  <MobileLink href="/" passHref onClick={closeMobileMenu}>Home</MobileLink>
+  <MobileLink href="/about" passHref onClick={closeMobileMenu}>About</MobileLink>
+  <MobileLink href="/stories" passHref onClick={closeMobileMenu}>Stories</MobileLink>
+  <MobileLink href="/events" passHref onClick={closeMobileMenu}>Events</MobileLink>
+</MobileMenu>
     </>
   );
 };

@@ -3,9 +3,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import Navbar from "@/src/components/Navbar";
-
 import { createGlobalStyle } from 'styled-components';
 import Footer from "@/src/components/Footer";
+import Script from "next/script";
+import Image from "next/image";
 
 const GlobalStyle = createGlobalStyle`
   html, body {
@@ -24,27 +25,23 @@ const ContentContainer = styled.div`
   align-items: center;
 `;
 
-const HeaderImage = styled.img`
-  max-width: 300px;
-  width: 100%;
-  margin-right: 0; // set to 0
-  margin: auto; // center the image
-
-  @media (min-width: 768px) {
-    width: 30%;
-    margin-right: 2rem; // apply the original margin-right value at larger screen sizes
-  }
+const HeaderImageContainer = styled.div`
+  width: 100%; // Set the width as per your requirement
+  max-width: 300px; // Set a max-width to limit the image size
+  margin: auto;
 `;
+
+
 
 const AboutPageContainer = styled.div`
   background: url('/pcosBGColor.png') no-repeat center center fixed;
   background-size: cover;
-  min-height: 100vh; // use min-height instead of fixed height
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; // align content to the top
-  padding-top: 80px; // padding to prevent content overlap with the navbar
+  justify-content: flex-start;
+  padding-top: 80px;
 `;
 
 const MainSection = styled.div`
@@ -62,28 +59,28 @@ const MainSection = styled.div`
 
 const MainParagraph = styled.p`
   font-size: 1.6rem;
-  line-height: 1.2; // Reduce line spacing for mobile
-  text-align: center; // Left-aligned text
+  line-height: 1.2;
+  text-align: center; 
   width: 100%;
-  margin-bottom: 1rem; // Increase the bottom margin
-  margin-top: 1rem; // Increase the top margin
-  font-family: "Arial, sans-serif"; // Consider using a more readable font
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  font-family: "Arial, sans-serif";
 
   @media (min-width: 768px) {
-    margin-bottom: 3rem; // You can adjust this for larger screens
+    margin-bottom: 3rem;
     margin-top: 3rem;
-    line-height: 1.5; // Adjust for larger screens if needed
+    line-height: 1.5;
   }
 `;
 
 
 const SecondaryParagraphs = styled.div`
-  text-align: left; // Left-aligned text
+  text-align: left;
   font-size: 1.4rem;
-  line-height: 1.2; // Reduce line spacing for mobile
+  line-height: 1.2;
   width: 80%;
-  font-family: "Arial, sans-serif"; // Consider using a more readable font
-  margin-top: 0rem; // Reduce the top margin to bring closer to the main section
+  font-family: "Arial, sans-serif";
+  margin-top: 0rem;
   text-align: center;
 `;
 
@@ -101,12 +98,21 @@ const ImageAndTextContainer = styled.div`
 export default function About() {
   return (
     <>
+      <Script id="gtag-main" src="https://www.googletagmanager.com/gtag/js?id=G-RT5P8VQWJK" async></Script>
+      <Script id="gtag-config" dangerouslySetInnerHTML={{ __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-RT5P8VQWJK');
+        ` }} />
       <GlobalStyle />
       <Navbar />
       <AboutPageContainer>
         <ContentContainer>
           <MainSection>
-            <HeaderImage src="/laineyAbout.jpg" alt="Main Photo" />
+          <HeaderImageContainer>
+            <Image src="/laineyAbout.jpg" alt="Main Photo" layout="responsive" width={2316} height={3088} />
+          </HeaderImageContainer>
             <ImageAndTextContainer>
               <MainParagraph>
               Hi everyone! My name is Lainey Johnson, the creator of “Faces of PCOS” and Bedford’s PCOS Awareness Walk. First of all, I want to give a huge thank you to everyone who has participated and shared their PCOS stories with us! I would like to share my story and why this project is so important to me.
