@@ -98,12 +98,12 @@ const ImageAndTextContainer = styled.div`
 export default function About() {
   return (
     <>
-      <Script id="gtag-main" src="https://www.googletagmanager.com/gtag/js?id=G-RT5P8VQWJK" async></Script>
+      <Script id="gtag-main" src="https://www.googletagmanager.com/gtag/js?id=G-SMP6604EWF" async></Script>
       <Script id="gtag-config" dangerouslySetInnerHTML={{ __html: `
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'G-RT5P8VQWJK');
+          gtag('config', 'G-SMP6604EWF');
         ` }} />
       <GlobalStyle />
       <Navbar />
