@@ -5,6 +5,7 @@ import Navbar from "@/src/components/Navbar";
 import styled from 'styled-components';
 import Script from "next/script";
 import { createGlobalStyle } from 'styled-components';
+import Head from "next/head";
 
 const GlobalStyle = createGlobalStyle`
   html, body {
@@ -42,6 +43,16 @@ const Title = styled.div`
 export default function Home() {
   return (
     <>
+      <Head>
+        <title>Face of PCOS</title>
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="description" content="Faces of PCOS - A supportive community for women with PCOS" />
+        <meta name="keywords" content="PCOS, support, community, women" />
+        <meta property="og:title" content="Faces of PCOS" />
+        <meta property="og:description" content="A supportive community for women with PCOS" />
+        <meta property="og:image" content="/pcosLogo.png" />
+        <meta property="og:type" content="website" />
+      </Head>
       <Script id="gtag-main" src="https://www.googletagmanager.com/gtag/js?id=G-R50Q5G0C9Z" async></Script>
       <Script id="gtag-config" dangerouslySetInnerHTML={{ __html: `
           window.dataLayer = window.dataLayer || [];

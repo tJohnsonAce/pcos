@@ -37,6 +37,16 @@ const MenuButton = styled.button`
   }
 `;
 
+const NavLink = styled.a`
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+
+  &:hover {
+    color: #24c6c5; // Change the color as desired on hover
+  }
+`;
+
 const NavLinks = styled.div`
   display: flex;
   gap: 1rem;
@@ -97,13 +107,13 @@ export const Navbar = () => {
     <>
       <NavBarContainer>
       <Logo>
-        <Image src="/pcosLogo.png" alt="PCOS Logo" width="100" height="100" />
+        <Image src="/pcosLogo.png" alt="Face of PCOS Logo" width="300" height="100" />
       </Logo>
-        <NavLinks>
-          <Link href="/">Home</Link>
-          <Link href="/about">About</Link>
-          <Link href="/stories">Stories</Link>
-          <Link href="/events">Events</Link>
+      <NavLinks>
+          <Link href="/" passHref><NavLink>Home</NavLink></Link>
+          <Link href="/about" passHref><NavLink>About</NavLink></Link>
+          <Link href="/stories" passHref><NavLink>Stories</NavLink></Link>
+          <Link href="/events" passHref><NavLink>Events</NavLink></Link>
         </NavLinks>
         <MenuButton onClick={() => setMobileMenuOpen(true)}>
           <FaBars />

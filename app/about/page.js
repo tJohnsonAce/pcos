@@ -7,6 +7,7 @@ import { createGlobalStyle } from 'styled-components';
 import Footer from "@/src/components/Footer";
 import Script from "next/script";
 import Image from "next/image";
+import Head from "next/head";
 
 const GlobalStyle = createGlobalStyle`
   html, body {
@@ -120,10 +121,10 @@ export default function About() {
             </ImageAndTextContainer>
           </MainSection>
           <SecondaryParagraphs>
-            <p>              I was diagnosed in 2010 at the age of 16. I was told it was a common disorder and was immediately put on the most common drug of choice for us cysters…birth control. Basically, I was given a bandaid for my problems and sent on my way.</p>
-            <p>A couple years down the road, I was still having issues with irregular periods, (I didn’t continue with birth control at the time,) and other stereotypical symptoms. I was then diagnosed with PCOS with insulin resistance. I was given, you guessed it, metformin and more birth control. </p>
-            <p>My husband and I got married in 2017, and started trying to grow our family in 2018. I wasn’t getting pregnant, and was prescribed clomid. I was told by my doctor that she didn’t feel comfortable with giving me the prescription because I was overweight, and continued lecturing me on how dangerous it is to have a baby if you’re overweight. I found out a few months later, by a different doctor, that my doctor who prescribed me clomid did not give me a high enough dosage to work. Guess she really didn’t want to help me because of my weight after all… But that’s a story for another day. We still haven’t had a baby, but we’re trusting in God’s plan and timing. </p>
-            <p>I’ve learned a lot through this journey, and I’ll continue learning as I go. Having this community of women helps me in ways I cannot describe! Back when I was 16, I felt alone and scared, not sure how this disorder would affect me. Now, having each other is a huge blessing to me, and I love that we can all encourage one another!</p>
+            <p>I was diagnosed in 2010 at the age of 16. I was told it was a common disorder and was immediately put on the most common drug of choice for us cysters…birth control. Basically, I was given a bandaid for my problems and sent on my way.</p>
+            <p>A couple years down the road, I was still having issues with irregular periods, (I didn&apos;t continue with birth control at the time,) and other stereotypical symptoms. I was then diagnosed with PCOS with insulin resistance. I was given, you guessed it, metformin and more birth control. </p>
+            <p>My husband and I got married in 2017, and started trying to grow our family in 2018. I wasn&apos;t getting pregnant, and was prescribed clomid. I was told by my doctor that she didn&apos;t feel comfortable with giving me the prescription because I was overweight, and continued lecturing me on how dangerous it is to have a baby if you&apos;re overweight. I found out a few months later, by a different doctor, that my doctor who prescribed me clomid did not give me a high enough dosage to work. Guess she really didn&apos;t want to help me because of my weight after all… But that&apos;s a story for another day. We still haven&apos;t had a baby, but we&apos;re trusting in God&apos;s plan and timing. </p>
+            <p>I&apos;ve learned a lot through this journey, and I&apos;ll continue learning as I go. Having this community of women helps me in ways I cannot describe! Back when I was 16, I felt alone and scared, not sure how this disorder would affect me. Now, having each other is a huge blessing to me, and I love that we can all encourage one another!</p>
           </SecondaryParagraphs>
         </ContentContainer>
         <Footer />

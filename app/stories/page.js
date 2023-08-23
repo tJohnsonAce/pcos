@@ -9,6 +9,7 @@ import Navbar from "@/src/components/Navbar";
 import Script from "next/script";
 import { createGlobalStyle } from 'styled-components';
 import Footer from "@/src/components/Footer";
+import Head from "next/head";
 
 const GlobalStyle = createGlobalStyle`
   html, body {
@@ -75,6 +76,16 @@ export default function Stories(props) {
 
   return (
     <div>
+      <Head>
+        <title>Face of PCOS - Stories</title>
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="description" content="Explore personal stories of women living with PCOS. Discover journeys of struggle, resilience, and triumph in a supportive community." />
+        <meta name="keywords" content="PCOS, support, community, women" />
+        <meta property="og:title" content="Faces of PCOS - Stories" />
+        <meta property="og:description" content="Explore personal stories of women living with PCOS. Discover journeys of struggle, resilience, and triumph in a supportive community." />
+        <meta property="og:image" content="/pcosLogo.png" />
+        <meta property="og:type" content="website" />
+      </Head>
       <Script id="gtag-main" src="https://www.googletagmanager.com/gtag/js?id=G-R50Q5G0C9Z" async></Script>
       <Script id="gtag-config" dangerouslySetInnerHTML={{ __html: `
           window.dataLayer = window.dataLayer || [];
