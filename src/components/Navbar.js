@@ -1,10 +1,10 @@
-'use client'
+"use client";
 
-import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
-import { FaBars, FaTimes } from 'react-icons/fa';
-import styled from 'styled-components';
-import Link from 'next/link';
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import { FaBars, FaTimes } from "react-icons/fa";
+import styled from "styled-components";
+import Link from "next/link";
 import Image from "next/image";
 
 const NavBarContainer = styled.nav`
@@ -74,7 +74,7 @@ const MobileMenu = styled.div`
   gap: 1rem;
   transition: transform 0.6s ease-in-out;
   padding: 1rem;
-  transform: ${(props) => (props.open ? 'translateX(0)' : 'translateX(-100%)')};
+  transform: ${(props) => (props.open ? "translateX(0)" : "translateX(-100%)")};
 `;
 
 const CloseButton = styled(MenuButton)`
@@ -93,9 +93,6 @@ const MobileLink = styled(Link)`
   }
 `;
 
-
-
-
 export const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -106,28 +103,55 @@ export const Navbar = () => {
   return (
     <>
       <NavBarContainer>
-      <Logo>
-        <Image src="/pcosLogo.png" alt="Face of PCOS Logo" width="300" height="100" />
-      </Logo>
-      <NavLinks>
-          <Link href="/" passHref><NavLink>Home</NavLink></Link>
-          <Link href="/about" passHref><NavLink>About</NavLink></Link>
-          <Link href="/stories" passHref><NavLink>Stories</NavLink></Link>
-          <Link href="/events" passHref><NavLink>Events</NavLink></Link>
+        <Logo>
+          <Image
+            src="/pcosLogo.png"
+            alt="Face of PCOS Logo"
+            width="300"
+            height="100"
+          />
+        </Logo>
+        <NavLinks>
+          <Link href="/" passHref>
+            <NavLink>Home</NavLink>
+          </Link>
+          <Link href="/about" passHref>
+            <NavLink>About</NavLink>
+          </Link>
+          <Link href="/stories" passHref>
+            <NavLink>Stories</NavLink>
+          </Link>
+          <Link href="/events" passHref>
+            <NavLink>Events</NavLink>
+          </Link>
+          <Link href="/blog" passHref>
+            <NavLink>Blog</NavLink>
+          </Link>
         </NavLinks>
         <MenuButton onClick={() => setMobileMenuOpen(true)}>
           <FaBars />
         </MenuButton>
       </NavBarContainer>
       <MobileMenu open={mobileMenuOpen}>
-  <CloseButton onClick={() => setMobileMenuOpen(false)}>
-    <FaTimes />
-  </CloseButton>
-  <MobileLink href="/" passHref onClick={closeMobileMenu}>Home</MobileLink>
-  <MobileLink href="/about" passHref onClick={closeMobileMenu}>About</MobileLink>
-  <MobileLink href="/stories" passHref onClick={closeMobileMenu}>Stories</MobileLink>
-  <MobileLink href="/events" passHref onClick={closeMobileMenu}>Events</MobileLink>
-</MobileMenu>
+        <CloseButton onClick={() => setMobileMenuOpen(false)}>
+          <FaTimes />
+        </CloseButton>
+        <MobileLink href="/" passHref onClick={closeMobileMenu}>
+          Home
+        </MobileLink>
+        <MobileLink href="/about" passHref onClick={closeMobileMenu}>
+          About
+        </MobileLink>
+        <MobileLink href="/stories" passHref onClick={closeMobileMenu}>
+          Stories
+        </MobileLink>
+        <MobileLink href="/events" passHref onClick={closeMobileMenu}>
+          Events
+        </MobileLink>
+        <MobileLink href="/blog" passHref onClick={closeMobileMenu}>
+          Blog
+        </MobileLink>
+      </MobileMenu>
     </>
   );
 };
