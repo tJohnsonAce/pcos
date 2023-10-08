@@ -92,6 +92,16 @@ export default function Blog() {
   const [blogs, setBlogs] = useState([]);
   const [showContent, setShowContent] = useState({});
 
+  useEffect(() => {
+    const link =
+      document.querySelector("link[rel*='icon']") ||
+      document.createElement("link");
+    link.type = "image/jpg";
+    link.rel = "shortcut icon";
+    link.href = "/facesOfPcopsBlogImage.jpg";
+    document.getElementsByTagName("head")[0].appendChild(link);
+  }, []);
+
   const formatDate = (dateString) => {
     const options = { year: "numeric", month: "long", day: "numeric" };
     return new Date(dateString).toLocaleDateString(undefined, options);
