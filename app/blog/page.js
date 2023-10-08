@@ -10,6 +10,8 @@ import Footer from "@/src/components/Footer";
 import Link from "next/link";
 
 import { createGlobalStyle } from "styled-components";
+import Script from "next/script";
+import { NextSeo } from "next-seo";
 
 const GlobalStyle = createGlobalStyle`
   html, body {
@@ -108,6 +110,41 @@ export default function Blog() {
 
   return (
     <>
+      <NextSeo
+        title="PCOS Awareness Blog"
+        description="A blog aimed to bring awareness and offer support to women with PCOS."
+        openGraph={{
+          type: "website",
+          url: "https://facesofpcos.com/blog",
+          title: "Faces Of PCOS Blog",
+          description:
+            "A blog aimed to bring awareness and offer support to women with PCOS.",
+          images: [
+            {
+              url: "/facesOfPcosBlogImage.jpg",
+              width: 1200,
+              height: 630,
+              alt: "PCOS Awareness Blog Image",
+            },
+          ],
+        }}
+      />
+      <Script
+        id="gtag-main"
+        src="https://www.googletagmanager.com/gtag/js?id=G-R50Q5G0C9Z"
+        async
+      ></Script>
+      <Script
+        id="gtag-config"
+        dangerouslySetInnerHTML={{
+          __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-R50Q5G0C9Z');
+        `,
+        }}
+      />
       <GlobalStyle />
       <Navbar />
       <BlogPageContainer>
