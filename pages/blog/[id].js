@@ -67,7 +67,12 @@ export default function BlogPost() {
   const [blog, setBlog] = useState(null);
 
   const formatDate = (dateString) => {
-    const options = { year: "numeric", month: "long", day: "numeric" };
+    const options = {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      timeZone: "America/New_York",
+    };
     return new Date(dateString).toLocaleDateString(undefined, options);
   };
 
@@ -96,7 +101,7 @@ export default function BlogPost() {
         }
         openGraph={{
           type: "article",
-          url: `https://yourwebsite.com/blog/${id}`,
+          url: `https://facesofpcos.com/blog/${id}`,
           title: blog ? blog.fields.blogTitle : "Loading...",
           description: blog
             ? "Description based on individual blog data"
